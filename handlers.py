@@ -7,11 +7,6 @@ from aiogram.dispatcher import FSMContext
 
 from keyboards import keyboard
 from main import bot, dp
-# from config import chat_id
-
-
-# async def send_hello(db):
-#     await bot.send_message(chat_id=chat_id, text='ПРИВА))))')
 
 
 class Control(StatesGroup):
@@ -41,7 +36,7 @@ async def start(message):
         user_id = [human_id, user, "0", "0"]
         cursor.execute("INSERT INTO list VALUES(?, ?, ?, ?);", user_id)
         connect.commit()
-        text = 'Welcome to the club, buddy \n Type /help for bot info'
+        text = 'Welcome to the club, buddy\nType /help for bot info'
         await message.answer(text=text)
     else:
         text = 'Ты уже в книжечке'
@@ -50,7 +45,7 @@ async def start(message):
 
 @dp.message_handler(Command('Госуслуги'))
 async def show_set(message: Message):
-    await message.answer('Оставь надежду всяк сюда входящий', reply_markup=keyboard)
+    await message.answer('Оставь надежду всяк сюда входящий.', reply_markup=keyboard)
 
 
 @dp.message_handler(Command('help'))
@@ -156,23 +151,23 @@ async def get_list(message: Message):
     await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
 
 
-# @dp.message_handler(Text(equals=['Оповестить']))
-# async def warn_list(message: Message):
-#     connect = sqlite3.connect('db.db')
-#     cursor = connect.cursor()
-#     human_id = message.from_user.id
-#     text = 'Клятые иноагенты '
-#     status = '1'
-#     human_regalia = '1'
-#     cursor.execute(f"SELECT id FROM list WHERE statuses = {status} AND id = {human_id}")
-#     data2 = cursor.fetchone()
-#     cursor.execute(f"SELECT * FROM list WHERE regalias = {human_regalia}")
-#     data = cursor.fetchall()
-#     if data2 is not None and data is not None:
-#         for row in data:
-#             text += '@' + row[1] + ', '
-#         text += 'требуется ваше присутствие.'
-#         await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
+@dp.message_handler(Text(equals=['Оповестить']))
+async def warn_list(message: Message):
+    connect = sqlite3.connect('db.db')
+    cursor = connect.cursor()
+    human_id = message.from_user.id
+    text = 'Клятые иноагенты '
+    status = '1'
+    human_regalia = '1'
+    cursor.execute(f"SELECT id FROM list WHERE statuses = {status} AND id = {human_id}")
+    data2 = cursor.fetchone()
+    cursor.execute(f"SELECT * FROM list WHERE regalias = {human_regalia}")
+    data = cursor.fetchall()
+    if data2 is not None and data is not None:
+        for row in data:
+            text += '@' + row[1] + ', '
+        text += 'требуется ваше присутствие.'
+        await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
 
 
 @dp.message_handler()
