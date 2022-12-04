@@ -21,8 +21,8 @@ async def start(message):
     cursor.execute("""CREATE TABLE IF NOT EXISTS list(
         id       INTEGER,
         name     TEXT,
-        regalias TEXT,
-        statuses TEXT
+        regalias INTEGER,
+        statuses INTEGER
     )""")
 
     connect.commit()
@@ -68,9 +68,22 @@ async def show_who(message: Message):
     await message.answer(text=text)
 
 
-@dp.message_handler(Text(equals=['Список иноагентов', 'Оповестить', 'Добавить иноагента', 'Амнистировать иноагента']))
-async def get_stg(message: Message):
-    await message.answer(message.text, reply_markup=ReplyKeyboardRemove())
+# @dp.message_handler(Text(equals=['Список иноагентов', 'Оповестить', 'Добавить иноагента', 'Амнистировать иноагента']))
+
+@dp.message_handler(Text(equals=['Список иноагентов']))
+async def get_list(message: Message):
+    text = ''
+    connect = sqlite3.connect('db.db')
+    cursor = connect.cursor()
+    human_regalia = '1'
+    cursor.execute(f"SELECT * FROM list WHERE regalias = {human_regalia}")
+    data = cursor.fetchall()
+    if data is not None:
+        for row in data:
+            # text = ''.join(row[1])
+            text += '@' + row[1] + ', '
+    text = text[:-2]
+    await message.answer(text=text)
 
 
 @dp.message_handler()
@@ -79,7 +92,6 @@ async def send_answer(message: Message):
     cursor = connect.cursor()
     human_id = message.from_user.id
     human_regalia = '1'
-    status = 'admin'
     cursor.execute(f"SELECT id FROM list WHERE id = {human_id} AND regalias = {human_regalia}")
     data = cursor.fetchone()
     if data is not None:
