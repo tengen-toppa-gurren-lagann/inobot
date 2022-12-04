@@ -7,11 +7,6 @@ from aiogram.dispatcher import FSMContext
 
 from keyboards import keyboard
 from main import bot, dp
-# from config import chat_id
-
-
-# async def send_hello(db):
-#     await bot.send_message(chat_id=chat_id, text='ПРИВА))))')
 
 
 class Control(StatesGroup):
@@ -156,23 +151,23 @@ async def get_list(message: Message):
     await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
 
 
-# @dp.message_handler(Text(equals=['Оповестить']))
-# async def warn_list(message: Message):
-#     connect = sqlite3.connect('db.db')
-#     cursor = connect.cursor()
-#     human_id = message.from_user.id
-#     text = 'Клятые иноагенты '
-#     status = '1'
-#     human_regalia = '1'
-#     cursor.execute(f"SELECT id FROM list WHERE statuses = {status} AND id = {human_id}")
-#     data2 = cursor.fetchone()
-#     cursor.execute(f"SELECT * FROM list WHERE regalias = {human_regalia}")
-#     data = cursor.fetchall()
-#     if data2 is not None and data is not None:
-#         for row in data:
-#             text += '@' + row[1] + ', '
-#         text += 'требуется ваше присутствие.'
-#         await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
+@dp.message_handler(Text(equals=['Оповестить']))
+async def warn_list(message: Message):
+    connect = sqlite3.connect('db.db')
+    cursor = connect.cursor()
+    human_id = message.from_user.id
+    text = 'Клятые иноагенты '
+    status = '1'
+    human_regalia = '1'
+    cursor.execute(f"SELECT id FROM list WHERE statuses = {status} AND id = {human_id}")
+    data2 = cursor.fetchone()
+    cursor.execute(f"SELECT * FROM list WHERE regalias = {human_regalia}")
+    data = cursor.fetchall()
+    if data2 is not None and data is not None:
+        for row in data:
+            text += '@' + row[1] + ', '
+        text += 'требуется ваше присутствие.'
+        await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
 
 
 @dp.message_handler()
