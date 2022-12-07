@@ -25,100 +25,100 @@
 - После успешного запуска следует перейти в Telegram ```https://web-telegram.ru/```
 - Создадим новый чат с нашим ботом, для этого найдите его по тегу ```@inoagentsbot```
 
-![Find bot ](examples/2.PNG)
+![Find bot ](examples/2.png)
 
 - Нажимаем на кнопку ```start``` или вводим аналогичную команду и можем начинать пользоваться ботом. Весь функционал описан в разделе ```Возможности```
 
 ### Обычный запуск проекта
 Запустите проект в среде PyCharm путем выбора необходимой папки (см. рис ниже):
 
-![Open Project](examples/3.PNG)
+![Open Project](examples/3.png)
 
 Затем настройте интерпретатор Python, для этого перейдите ```File->Settings->Project:inobot->Python Interpreter``` и выполните следующую настройку:
 
-![Open Project](examples/4.PNG)
+![Open Project](examples/4.png)
 
 Теперь следует добавить все необходимые библиотеки в проект, для этого следует в консоли ввести следующую команду:
 ```pip install -r requirements.txt```
 Можно использовать консоль прямо из Pycharm, как показано ниже
 
-![Open Project](examples/5.PNG)
+![Open Project](examples/5.png)
 
 Или же перейти в папку проекта и добавить их через обычную консоль, как показано ниже
 
-![Open Project](examples/6.PNG)
+![Open Project](examples/6.png)
 
 Теперь откройте файл ```main.py``` и на строке 15 запустите бота:
 
-![Start Bot](examples/7.PNG)
+![Start Bot](examples/7.png)
 
 Если при запуске возникли какие-то сбои, то для проверки перейдите в окно подключенных модулей и проверьте их в соответствии со следующим фото:
 
 ```File->Settings->Project:inobot->Python Interpreter```
 
-![Packages](examples/8.PNG)
+![Packages](examples/8.png)
 
 ### Запуск проекта при помощи Docker
 При помощи командной строки перейдите в папку проекта и проверьте наличие всех файлов:
 ```cd PyCharmProjects/inobot```
 
-![Docker Check Files](examples/9.PNG)
+![Docker Check Files](examples/9.png)
 
 Теперь создайте образ при помощи следующей команды:
 ```sudo docker build -t dockerfile .```
 
-![Docker Build Image](examples/10.PNG)
+![Docker Build Image](examples/10.png)
 
 После создания образа его можно запустить в Docker Desktop:
 
-![Docker Run Image](examples/11.PNG)
+![Docker Run Image](examples/11.png)
 
 ## Пример работы проекта
 
 Теперь перейдем в Telegram и найдем нашего бота:
 
-![Usage 1](examples/2.PNG)
+![Usage 1](examples/2.png)
 
 Начнем работу:
 
-![Usage 2](examples/bot-1.PNG)
+![Usage 2](examples/bot-1.png)
 
 Введём ```/help```:
 
-![Usage 3](examples/1.PNG)
+![Usage 3](examples/1.png)
 
 Введём ```/Хто_я```:
 
-![Usage 4](examples/bot-2.PNG)
+![Usage 4](examples/bot-2.png)
 
 Введём ```/Госуслуги```:
 
-![Usage 5](examples/bot-3.PNG)
+![Usage 5](examples/bot-3.png)
 
 Если была нажата кнопка ```Список иноагентов```:
 
-![Usage 6](examples/bot-4.PNG)
+![Usage 6](examples/bot-4.png)
 
 Если была нажата кнопка ```Оповестить```:
 
-![Usage 7](examples/bot-5.PNG)
+![Usage 7](examples/bot-5.png)
 
 Если была нажата кнопка ```Добавить иноагента```:
 
-![Usage 8](examples/bot-6.PNG)
+![Usage 8](examples/bot-6.png)
 
 Если была нажата кнопка ```Список иноагентов``` после этого:
 
-![Usage 9](examples/bot-7.PNG)
+![Usage 9](examples/bot-7.png)
 
 Если была нажата кнопка ```Амнистировать иноагента```:
 
-![Usage 10](examples/bot-8.PNG)
+![Usage 10](examples/bot-8.png)
 
 Если была нажата кнопка ```Список иноагентов``` после этого:
 
-![Usage 11](examples/bot-9.PNG)
+![Usage 11](examples/bot-9.png)
 
 Сообщение, которое прикрепляет бот к пользователю, имеющему статус иноагента:  
 
-![Usage 12](examples/bot-10.PNG)
+![Usage 12](examples/bot-10.png)
