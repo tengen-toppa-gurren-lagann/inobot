@@ -174,6 +174,7 @@ async def warn_list(message: Message):
 async def send_answer(message: Message):
     connect = sqlite3.connect('db.db')
     cursor = connect.cursor()
+    m = message.message_id
     human_id = message.from_user.id
     m = message.message_id
     human_regalia = '1'
@@ -183,4 +184,4 @@ async def send_answer(message: Message):
         text = 'ДАННОЕ СООБЩЕНИЕ (МАТЕРИАЛ) СОЗДАНО И (ИЛИ) РАСПРОСТРАНЕНО ИНОСТРАННЫМ СРЕДСТВОМ МАССОВОЙ ИНФОРМАЦИИ, ' \
                'ВЫПОЛНЯЮЩИМ ФУНКЦИИ ИНОСТРАННОГО АГЕНТА, И (ИЛИ) РОССИЙСКИМ ЮРИДИЧЕСКИМ ЛИЦОМ, ВЫПОЛНЯЮЩИМ ФУНКЦИИ ' \
                'ИНОСТРАННОГО АГЕНТА. '
-        await bot.send_message(message.from_user.id, text=text, reply_to_message_id=m)
+        await bot.send_message(message.chat.id, text=text, reply_to_message_id=m)
