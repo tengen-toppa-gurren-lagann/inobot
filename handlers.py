@@ -176,6 +176,7 @@ async def send_answer(message: Message):
     cursor = connect.cursor()
     m = message.message_id
     human_id = message.from_user.id
+    m = message.message_id
     human_regalia = '1'
     cursor.execute(f"SELECT id FROM list WHERE id = {human_id} AND regalias = {human_regalia}")
     data = cursor.fetchone()
