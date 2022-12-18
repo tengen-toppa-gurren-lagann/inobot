@@ -33,7 +33,7 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           FILE_NAME: "src/config.py"
-          FILE_DATA: "BOT_TOKEN = '${BOT_TOKEN}'"
+          FILE_DATA: "BOT_TOKEN = '${{ secrets.BOT_TOKEN }}'"
       - name: Echo
         run:
           cat src/config.py
