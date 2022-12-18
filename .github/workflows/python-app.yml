@@ -33,5 +33,5 @@ jobs:
         env:
           BOT_TOKEN: ${{secrets.BOT_TOKEN}}
         run: |
-          'BOT_TOKEN = "'"env.BOT_TOKEN"'"'> src/config.py
+          'BOT_TOKEN = ${env.BOT_TOKEN}'> src/config.py
           python -m pytest tests/test_handlers.py
