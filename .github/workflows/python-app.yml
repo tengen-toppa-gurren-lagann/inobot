@@ -36,7 +36,7 @@ jobs:
           FILE_DATA: "BOT_TOKEN = '${env.BOT_TOKEN}'"
       - name: Echo
         run:
-          echo ${{env.FILE_DATA}}
+          cat src/config.py
       - name: Test with pytest
         run: |
           python -m pytest tests/test_handlers.py
