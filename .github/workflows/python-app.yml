@@ -30,12 +30,12 @@ jobs:
           python -m pip install -r requirements.txt
           python -m pip install pytest
 
-      - name: Config
-        run: |
-          if: runner.os != 'Windows'
-            echo 'BOT_TOKEN = "'"${{ secrets.BOT_TOKEN }}"'"' >> src/config.py
-          if: runner.os == 'Windows'
-            echo 'BOT_TOKEN = "'"${{ secrets.BOT_TOKEN }}"'"' >> src/config.py
+      - name: Config |
+        if: runner.os != 'Windows'
+        run: echo 'BOT_TOKEN = "'"${{ secrets.BOT_TOKEN }}"'"' >> src/config.py
+      - name: Config_Win |
+        if: runner.os == 'Windows'
+        run: echo 'BOT_TOKEN = \'${{ secrets.BOT_TOKEN }}\'' >> src/config.py
       - name: Test with pytest
         run: |
           python -m pytest tests/test_handlers.py
