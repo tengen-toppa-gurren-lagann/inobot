@@ -71,22 +71,3 @@ async def test_warn_list():
     message.answer.assert_called_with("Admin, Ino", reply_markup=ReplyKeyboardRemove())
 
 
-"""
-@pytest.mark.asyncio
-async def test_add_ino():
-    # Добавим в БД админа
-    connect = sqlite3.connect(db_name)
-    cursor = connect.cursor()
-    user = [666, "admin", "0", "1"]
-    cursor.execute("INSERT INTO list VALUES(?, ?, ?, ?);", user)
-    connect.commit()
-    # Добавим иноагента
-    message = AsyncMock()
-    message.from_user.id = 666
-    message.chat.id = ?
-    await add_ino(message)
-    message.answer.assert_called_with('Кто на этот раз?')
-    message.text = "@Pupkin"
-    await naming(message, Control.ino_name)
-    message.answer.assert_called_with(f'Решение вынесено.\nОтныне {name} признаётся иноагентом.')
-"""
