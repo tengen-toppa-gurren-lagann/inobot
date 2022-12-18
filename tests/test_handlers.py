@@ -5,8 +5,8 @@ from unittest.mock import AsyncMock
 
 from aiogram.types import ReplyKeyboardRemove
 
-from handlers import db_name, start, show_set, show_help, get_list
-from keyboards import keyboard
+from src.handlers import db_name, start, show_set, show_help, get_list
+from src.keyboards import keyboard
 
 
 @pytest.mark.asyncio
