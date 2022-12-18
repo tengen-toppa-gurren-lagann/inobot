@@ -5,8 +5,8 @@ from aiogram.dispatcher.filters import Text, Command
 from aiogram.dispatcher.filters.state import StatesGroup, State
 from aiogram.dispatcher import FSMContext
 
-from keyboards import keyboard
-from main import bot, dp
+from src.keyboards import keyboard
+from src.main import bot, dp
 
 db_name = "db.db"
 
