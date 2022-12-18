@@ -29,9 +29,11 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install pytest
-      - name: Test with pytest
+      - uses: "finnp/create-file-action@master"
         env:
           BOT_TOKEN: ${{secrets.BOT_TOKEN}}
+          FILE_NAME: "src/config.py"
+          FILE_DATA: "BOT_TOKEN = '$BOT_TOKEN'"
+      - name: Test with pytest
         run: |
-          'BOT_TOKEN = ${env.BOT_TOKEN}'> src/config.py
           python -m pytest tests/test_handlers.py
