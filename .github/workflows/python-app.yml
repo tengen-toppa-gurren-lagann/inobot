@@ -34,6 +34,7 @@ jobs:
           BOT_TOKEN: ${{secrets.BOT_TOKEN}}
           FILE_NAME: "src/config.py"
           FILE_DATA: "BOT_TOKEN = '${env.BOT_TOKEN}'"
+      - name: Echo
         run:
           echo ${{env.FILE_DATA}}
       - name: Test with pytest
