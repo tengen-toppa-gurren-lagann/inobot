@@ -32,9 +32,9 @@ jobs:
 
       - name: Config
         run: |
-          if: runner.os != 'windows'
+          if: runner.os != 'Windows'
             echo 'BOT_TOKEN = "'"${{ secrets.BOT_TOKEN }}"'"' >> src/config.py
-          if: [[runner.os == 'windows']]
+          if: runner.os == 'Windows'
             echo 'BOT_TOKEN = "'"${{ secrets.BOT_TOKEN }}"'"' >> src/config.py
       - name: Test with pytest
         run: |
