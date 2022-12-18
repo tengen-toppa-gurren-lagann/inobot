@@ -69,5 +69,3 @@ async def test_warn_list():
     message = AsyncMock()
     await get_list(message)
     message.answer.assert_called_with("Admin, Ino", reply_markup=ReplyKeyboardRemove())
-
-
