@@ -31,9 +31,9 @@ jobs:
           python -m pip install pytest
       - uses: "finnp/create-file-action@master"
         env:
-          BOT_TOKEN: ${{secrets.BOT_TOKEN}}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           FILE_NAME: "src/config.py"
-          FILE_DATA: "BOT_TOKEN = '${env.BOT_TOKEN}'"
+          FILE_DATA: "BOT_TOKEN = '${{ env.BOT_TOKEN }}'"
       - name: Echo
         run:
           cat src/config.py
