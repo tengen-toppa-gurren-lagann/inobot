@@ -36,7 +36,7 @@ jobs:
 #          FILE_DATA: "BOT_TOKEN = '${{ secrets.BOT_TOKEN }}'"
       - name: Echo
         run:
-          echo 'BOT_TOKEN = \"'"${{ secrets.BOT_TOKEN }}\"'"' >> src/config.py
+          echo 'BOT_TOKEN = "'"${{ secrets.BOT_TOKEN }}"'"' >> src/config.py
       - name: Test with pytest
         run: |
           python -m pytest tests/test_handlers.py
