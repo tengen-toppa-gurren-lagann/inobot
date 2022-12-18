@@ -16,6 +16,11 @@
     - **Кнопка ```Добавить иноагента```** - меняет в базе данных метку регалии "иноагент" на положительную для конкретного пользователя.
       - Для всех пользователей с такой меткой каждое их сообщение, не являющееся командой или вызовом кнопки помечается соответствующей плашкой.
     - **Кнопка ```Амнистировать иноагента```** - меняет в базе данных метку регалии "иноагент" на отрицательную для конкретного пользователя.
+## Тестирование
+main - [![Tests for TelegramStatusBot](https://github.com/tengen-toppa-gurren-lagann/inobot/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/tengen-toppa-gurren-lagann/inobot/actions/workflows/python-app.yml)
+
+develop - [![Tests for TelegramStatusBot](https://github.com/tengen-toppa-gurren-lagann/inobot/actions/workflows/python-app.yml/badge.svg?branch=develop)](https://github.com/tengen-toppa-gurren-lagann/inobot/actions/workflows/python-app.yml)
+
 - ## Запуск проекта
 - Для начала требуется склонировать репозиторий:
 
